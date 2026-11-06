@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Noir Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>CAFÉ NOIR</h2>
+        <p>Management Dashboard</p>
+    </header>
+
+    <nav>
+        <button onclick="showPage('dashboard')">Dashboard</button>
+        <button onclick="showPage('inventory')">Inventory</button>
+    </nav>
+
+    <main>
+
+        <section id="dashboard">
+            <h1>Dashboard Overview</h1>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Products</h3>
+                    <p id="totalProducts">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Stock</h3>
+                    <p id="totalStock">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Inventory Value</h3>
+                    <p id="totalValue">₱0.00</p>
+                </div>
+            </div>
+
+            <h2>Recent Products</h2>
+            <div id="recentProducts"></div>
+        </section>
+
+        <section id="inventory" hidden>
+            <h1>Menu Inventory</h1>
+
+            <form id="productForm">
+                <input type="hidden" id="productId">
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Product Name"
+                    required>
+
+                <input
+                    type="text"
+                    id="productCategory"
+                    placeholder="Category"
+                    required>
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="Price"
+                    min="0"
+                    step="0.01"
+                    required>
+
+                <input
+                    type="number"
+                    id="productStock"
+                    placeholder="Stock"
+                    min="0"
+                    required>
+
+                <button type="submit" id="saveButton">
+                    Add Product
+                </button>
+            </form>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products...">
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTable"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
